@@ -4,8 +4,11 @@ Having trouble with your old-school DIP dynamic RAM chips? Here's a simple
 RAM tester that will give you a definitive pass or fail for a variety of
 chips.
 
-**This is an early beta release. The software is not completed. Feel free to
-build a tester and try it out, and submit bug reports.**
+**New** rev 3 now available! New features include:
+
+* USB-C power connector with PD resistors
+* Universal encoder wiring supports Bourns and Panasonic style encoders
+* Through-hole footprint for the Pico2 to ease soldering
 
 ![Photo of the board](pico-dram-tester.jpg)
 
@@ -38,7 +41,7 @@ Out of scope
 
 ## Construction
 
-[Fab package](fab/pico-dram-tester-rev2.zip)
+[Fab package](fab/pico-dram-tester-rev3.zip)
 
 [Schematic](pico-dram-tester.pdf)
 
@@ -52,6 +55,10 @@ or you may populate all the sockets. You can try substituting the sockets with
 standard IC sockets, but I recommend ZIF sockets which are much easier to use.
 Why so many sockets? It saves you from having to install dozens of pin control
 transistors required to make a tester work with a single universal socket.
+
+If you want to populate the USB-C connector, do it first before any other
+components. It makes it much easier to access the surface-mount pins along
+the edge with a soldering iron.
 
 Populate Q1, U7, U8, R2, R3, R4, and R5 if you would like to test 4116 and
 4132 devices without requiring an external -5V and +12V power supply.
@@ -69,6 +76,11 @@ monitor at position U9.
 
 For several reasons, this board requires a Pico 2 microcontroller board and
 will not work at all with the Pico 1.
+
+If you use a Bourns-style encoder, you will need to solder across the jumper
+on the back of the board. **This is the most common type of cheaply-available
+encoders, so you probably want to do this.** Otherwise, for Panasonic-style
+encoders, leave this open.
 
 After installing all the components and inspecting the board for accidental
 short circuits, connect the Pico 2 via the USB connector to a computer. The
